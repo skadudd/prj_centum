@@ -1,0 +1,547 @@
+[
+  {
+    "column":"환자번호",
+    "category_name":"연도 그룹",
+    "description":"환자번호의 첫 4자리는 연도를 나타내며, 2111부터 2305까지 다양한 연도 그룹으로 분류 가능"
+  },
+  {
+    "column":"환자번호",
+    "category_name":"일련번호",
+    "description":"환자번호의 하이픈(-) 뒤 숫자는 해당 연도 내 고유한 일련번호를 의미하며, 30부터 365까지 다양한 범위를 가짐"
+  },
+  {
+    "column":"환자번호",
+    "category_name":"등록 시기",
+    "description":"연도와 일련번호를 조합하여 환자의 대략적인 등록 시기와 순서를 파악할 수 있는 카테고리"
+  },
+  {
+    "column":"날짜",
+    "category_name":"연도별 분류",
+    "description":"2022년과 2023년으로 구분하여 데이터의 연간 트렌드 분석"
+  },
+  {
+    "column":"날짜",
+    "category_name":"분기별 분류",
+    "description":"각 연도의 4개 분기(Q1, Q2, Q3, Q4)로 세분화하여 계절성 및 분기별 패턴 파악"
+  },
+  {
+    "column":"날짜",
+    "category_name":"월별 그룹핑",
+    "description":"1월부터 12월까지 월 단위로 데이터를 그룹화하여 월별 분포 및 특성 분석"
+  },
+  {
+    "column":"날짜",
+    "category_name":"시즌별 구분",
+    "description":"봄(3-5월), 여름(6-8월), 가을(9-11월), 겨울(12-2월)로 나누어 계절적 특성 파악"
+  },
+  {
+    "column":"CC",
+    "category_name":"턱 통증\/불편감",
+    "description":"턱 관절의 통증, 소리, 움직임 제한 등과 관련된 증상을 포함하는 카테고리"
+  },
+  {
+    "column":"CC",
+    "category_name":"악관절 기능장애",
+    "description":"턱 관절의 비정상적인 움직임, 소리, 제한된 개구 등의 증상을 다루는 카테고리"
+  },
+  {
+    "column":"CC",
+    "category_name":"근육\/관절 스트레스",
+    "description":"스트레스로 인한 턱 근육의 긴장, 통증, 이갈이 등의 증상을 포함하는 카테고리"
+  },
+  {
+    "column":"CC",
+    "category_name":"교정\/치과 치료 관련",
+    "description":"교정 치료, 보톡스, 물리치료 등 치과적 개입과 관련된 증상 및 경과를 다루는 카테고리"
+  },
+  {
+    "column":"CC",
+    "category_name":"생활습관 요인",
+    "description":"음식 섭취 습관, 수면 자세, 이 악물기 등 일상생활과 연관된 턱 관절 증상을 포함하는 카테고리"
+  },
+  {
+    "column":"약",
+    "category_name":"완전 복용",
+    "description":"처방된 약을 모두 복용하거나 대부분 복용한 상태"
+  },
+  {
+    "column":"약",
+    "category_name":"부분 복용",
+    "description":"일부 약만 복용했거나 복용 중인 상태"
+  },
+  {
+    "column":"약",
+    "category_name":"미복용",
+    "description":"약을 복용하지 않았거나 복용을 중단한 상태"
+  },
+  {
+    "column":"약",
+    "category_name":"남은 약 있음",
+    "description":"처방된 약 중 일부가 남아있는 상태"
+  },
+  {
+    "column":"약",
+    "category_name":"대체 복용",
+    "description":"다른 약으로 대체하여 복용하거나 복용하지 않은 상태"
+  },
+  {
+    "column":"장치 ",
+    "category_name":"정기적 착용",
+    "description":"일주일에 2-3회 또는 주기적으로 장치를 착용하는 경우"
+  },
+  {
+    "column":"장치 ",
+    "category_name":"일상적 착용",
+    "description":"매일 또는 거의 매일 장치를 규칙적으로 착용하는 경우"
+  },
+  {
+    "column":"장치 ",
+    "category_name":"불완전 착용",
+    "description":"장치 착용에 중간에 누락이 있거나 불규칙한 착용 패턴을 보이는 경우"
+  },
+  {
+    "column":"장치 ",
+    "category_name":"불편감 유무",
+    "description":"장치 착용 시 느끼는 불편감의 정도를 나타내는 카테고리"
+  },
+  {
+    "column":"장치 ",
+    "category_name":"착용 제한",
+    "description":"특정 상황(치료, 손상 등)으로 인해 장치 착용이 제한되는 경우"
+  },
+  {
+    "column":"습관",
+    "category_name":"음식 선택 제한",
+    "description":"딱딱하고 질긴 음식을 의도적으로 피하거나 먹지 않는 행동 패턴"
+  },
+  {
+    "column":"습관",
+    "category_name":"치아 보호 전략",
+    "description":"치아 사이에 힘을 주지 않거나, 치아 접촉을 최소화하는 식사 방법"
+  },
+  {
+    "column":"습관",
+    "category_name":"식사 주의 행동",
+    "description":"음식 섭취 시 특별한 주의와 노력을 기울이는 식습관"
+  },
+  {
+    "column":"찜질 ",
+    "category_name":"정기적 온찜질",
+    "description":"주기적이고 규칙적으로 온찜질을 실시하는 경우 (매일, 주 3회 등)"
+  },
+  {
+    "column":"찜질 ",
+    "category_name":"간헐적 찜질",
+    "description":"불규칙하게 또는 필요에 따라 찜질을 하는 경우 (격일, 때때로)"
+  },
+  {
+    "column":"찜질 ",
+    "category_name":"복합 찜질",
+    "description":"냉찜질과 온찜질을 번갈아 사용하거나 혼합하여 적용하는 경우"
+  },
+  {
+    "column":"찜질 ",
+    "category_name":"미실시",
+    "description":"현재 찜질을 전혀 하지 않거나 증상이 없어 중단한 상태"
+  },
+  {
+    "column":"찜질 ",
+    "category_name":"제한적 찜질",
+    "description":"횟수나 시간을 제한하여 찜질을 최소한으로 실시하는 경우"
+  },
+  {
+    "column":"마사지, 스트레칭",
+    "category_name":"정기적 실행",
+    "description":"주 1-3회 정도 규칙적으로 마사지와 스트레칭을 수행하는 그룹"
+  },
+  {
+    "column":"마사지, 스트레칭",
+    "category_name":"매우 적극적",
+    "description":"매일 또는 거의 매일 마사지와 스트레칭을 실천하는 그룹"
+  },
+  {
+    "column":"마사지, 스트레칭",
+    "category_name":"비정기적\/미실행",
+    "description":"마사지와 스트레칭을 거의 하지 않거나, 불규칙하게 수행하는 그룹"
+  },
+  {
+    "column":"마사지, 스트레칭",
+    "category_name":"선별적 실행",
+    "description":"아프거나 필요할 때만 간헐적으로 마사지와 스트레칭을 하는 그룹"
+  },
+  {
+    "column":"PI",
+    "category_name":"측두하악장애(TMJ) 진단",
+    "description":"측두하악관절의 상태를 분석하고 진단하는 검사 및 영상 관련 카테고리 (파노라마, CT, 초음파 등)"
+  },
+  {
+    "column":"PI",
+    "category_name":"TMJ 치료법",
+    "description":"측두하악관절 치료를 위한 다양한 자극요법 및 시술 (단순\/복합\/전기 자극, 보톡스, 분사신장치료 등)"
+  },
+  {
+    "column":"PI",
+    "category_name":"교합 및 교정 관련",
+    "description":"치아 및 턱관절의 교합 상태를 평가하고 교정하는 치료 (동기능적 교합검사, 이갈이 장치, Splint 조정 등)"
+  },
+  {
+    "column":"PI",
+    "category_name":"약물 치료",
+    "description":"턱관절 및 근육 관련 증상 완화를 위한 약물 처방 (근육이완제, 진통제, 소염제 등)"
+  },
+  {
+    "column":"PI",
+    "category_name":"증상 관리",
+    "description":"환자의 증상 추적 관찰 및 관리 (근육 두께 확인, 통증 모니터링, 추적 검사 등)"
+  },
+  {
+    "column":"CMO",
+    "category_name":"초기 측정값",
+    "description":"스프레이와 스트레칭 전의 원본 mm 측정값을 나타내는 카테고리 (20mm, 28mm, 30mm, 31mm, 35mm, 38mm, 45mm 등)"
+  },
+  {
+    "column":"CMO",
+    "category_name":"처리 후 측정값",
+    "description":"스프레이와 스트레칭 후의 변경된 mm 측정값을 나타내는 카테고리 (35mm, 38mm, 45mm 등)"
+  },
+  {
+    "column":"CMO",
+    "category_name":"측정값 변화",
+    "description":"초기 측정값과 처리 후 측정값의 차이를 보여주는 카테고리 (예: 28mm → 35mm, 30mm → 38mm)"
+  },
+  {
+    "column":"MMO",
+    "category_name":"초기 측정값",
+    "description":"치료 또는 개입 전 초기 구강 개방 정도를 나타내는 측정값"
+  },
+  {
+    "column":"MMO",
+    "category_name":"치료 후 측정값",
+    "description":"스프레이, 스트레칭, 고착 등의 개입 후 변화된 구강 개방 정도"
+  },
+  {
+    "column":"MMO",
+    "category_name":"증상 동반 측정값",
+    "description":"통증, 뻐근함 등 추가적인 증상과 함께 기록된 구강 개방 측정값"
+  },
+  {
+    "column":"MMO",
+    "category_name":"부위별 측정값",
+    "description":"좌측(Lt), 우측(Rt) 등 신체 특정 부위와 연관된 구강 개방 측정값"
+  },
+  {
+    "column":"Cap.pal",
+    "category_name":"텍스트 존재",
+    "description":"일부 텍스트(RT CAP 등)가 포함된 데이터 항목"
+  },
+  {
+    "column":"Cap.pal",
+    "category_name":"빈 값\/누락",
+    "description":"데이터가 없거나 대시(-) 기호로 표시된 항목"
+  },
+  {
+    "column":"Cap.pal",
+    "category_name":"특수 기호\/부분 텍스트",
+    "description":"lt)+ 와 같은 불완전하거나 특수한 기호\/텍스트가 포함된 항목"
+  },
+  {
+    "column":"M.pal",
+    "category_name":"좌측 근육 상태",
+    "description":"왼쪽(Lt) 측의 근육 상태를 나타내는 카테고리 (예: Lt)M++, Lt)T+)"
+  },
+  {
+    "column":"M.pal",
+    "category_name":"우측 근육 상태",
+    "description":"오른쪽(Rt) 측의 근육 상태를 나타내는 카테고리 (예: Rt)M+, Rt masseter+)"
+  },
+  {
+    "column":"M.pal",
+    "category_name":"양측 근육 상태",
+    "description":"양쪽(both) 근육의 상태를 나타내는 카테고리 (예: both)M+, 양쪽 Masseter +)"
+  },
+  {
+    "column":"M.pal",
+    "category_name":"근육 부위",
+    "description":"특정 근육의 부위를 나타내는 카테고리 (예: masseter, temp, SCM, posterior)"
+  },
+  {
+    "column":"M.pal",
+    "category_name":"근육 강도",
+    "description":"근육의 반응 또는 압통 정도를 나타내는 카테고리 (예: +, ++, +\/-)"
+  },
+  {
+    "column":"Noise",
+    "category_name":"Click",
+    "description":"관절 움직임 시 발생하는 딸깍거리는 소리로, 좌측(Lt) 또는 우측(Rt)에서 관찰되는 특징적인 소음"
+  },
+  {
+    "column":"Noise",
+    "category_name":"Popping",
+    "description":"관절 움직임 중 갑자기 발생하는 튀어오르는 듯한 소리로, 반복적이거나 일시적으로 나타날 수 있음"
+  },
+  {
+    "column":"Noise",
+    "category_name":"Crepitus",
+    "description":"관절 움직임 시 느껴지는 마찰음 또는 갈라지는 듯한 소리로, 주로 관절의 마모나 퇴행성 변화와 연관됨"
+  },
+  {
+    "column":"Noise",
+    "category_name":"Normal\/No Noise",
+    "description":"특별한 비정상적인 소음이 없거나, 관찰되지 않은 상태"
+  },
+  {
+    "column":"Occlusion",
+    "category_name":"부분 접촉",
+    "description":"특정 치아 번호나 부위에서만 교합이 발생하는 경우 (예: 왼쪽 4번, 오른쪽 4,5번 등)"
+  },
+  {
+    "column":"Occlusion",
+    "category_name":"양측 접촉",
+    "description":"양쪽 치아에서 교합이 발생하는 경우 (BOTH, 양쪽 등의 키워드 포함)"
+  },
+  {
+    "column":"Occlusion",
+    "category_name":"전체 접촉",
+    "description":"모든 치아 번호에서 완전한 교합이 이루어지는 경우 (4567\/4567 등)"
+  },
+  {
+    "column":"Occlusion",
+    "category_name":"접촉 없음",
+    "description":"특정 치아나 부위에서 교합이 전혀 발생하지 않는 경우 (안닿음, - 등)"
+  },
+  {
+    "column":"Occlusion",
+    "category_name":"불완전 접촉",
+    "description":"일부 치아에서만 부분적으로 마모되거나 접촉이 제한적인 경우"
+  },
+  {
+    "column":"OJ\/OB",
+    "category_name":"비율 일치형",
+    "description":"두 값이 동일하거나 매우 근접한 비율을 가진 데이터 (예: 3\/3, 2\/2, 1.5\/1.5)"
+  },
+  {
+    "column":"OJ\/OB",
+    "category_name":"비대칭 비율형",
+    "description":"두 값의 비율이 크게 다른 데이터 (예: 1\/0.3, 1.5\/2.5)"
+  },
+  {
+    "column":"OJ\/OB",
+    "category_name":"단위 혼합형",
+    "description":"서로 다른 단위나 표기법을 사용한 데이터 (예: 2mm\/2mm)"
+  },
+  {
+    "column":"OJ\/OB",
+    "category_name":"정수 비율형",
+    "description":"정수로 표현된 비율 데이터 (예: 3\/2)"
+  },
+  {
+    "column":"Class",
+    "category_name":"그룹 1",
+    "description":"주로 숫자 1로 표현되는 카테고리로, 데이터셋에서 가장 빈번하게 등장하는 클래스"
+  },
+  {
+    "column":"Class",
+    "category_name":"그룹 3",
+    "description":"숫자 3으로 표현되는 카테고리로, 데이터셋에서 두 번째로 많이 나타나는 클래스"
+  },
+  {
+    "column":"Class",
+    "category_name":"기타\/오류",
+    "description":"문자 's'와 같이 숫자가 아닌 값으로, 데이터 입력 오류나 예외적인 케이스를 나타내는 카테고리"
+  },
+  {
+    "column":"Midline Shift",
+    "category_name":"왼쪽 편위",
+    "description":"치아 정중선이 왼쪽으로 이동한 상태 (음수 값 또는 '왼쪽' 표현)"
+  },
+  {
+    "column":"Midline Shift",
+    "category_name":"오른쪽 편위",
+    "description":"치아 정중선이 오른쪽으로 이동한 상태 (양수 값 또는 '오른쪽' 표현)"
+  },
+  {
+    "column":"Midline Shift",
+    "category_name":"무편위",
+    "description":"치아 정중선에 변화가 없거나 확인할 수 없는 상태 ('-' 표시)"
+  },
+  {
+    "column":"Midline Shift",
+    "category_name":"불명확",
+    "description":"정중선 이동 정도나 방향이 모호하거나 불완전하게 기록된 상태"
+  },
+  {
+    "column":"Deviation",
+    "category_name":"Right Deviation (Rt)",
+    "description":"오른쪽으로 편향된 움직임이나 방향을 나타내는 경우"
+  },
+  {
+    "column":"Deviation",
+    "category_name":"Left Deviation (L)",
+    "description":"왼쪽으로 편향된 움직임이나 방향을 나타내는 경우"
+  },
+  {
+    "column":"Deviation",
+    "category_name":"Symmetric (S)",
+    "description":"균형 잡힌 상태 또는 특별한 편향이 없는 경우"
+  },
+  {
+    "column":"Deviation",
+    "category_name":"Mixed Deviation",
+    "description":"오른쪽과 왼쪽 편향이 혼합되거나 변화하는 경우"
+  },
+  {
+    "column":"Deviation",
+    "category_name":"No Deviation (-)",
+    "description":"편향이 없거나 데이터가 누락된 경우"
+  },
+  {
+    "column":"CR-CO",
+    "category_name":"정확한 위치 표기",
+    "description":"특정 방향과 거리(mm)를 명확히 기록한 데이터 (예: 오른쪽 뒤로 2mm, 뒤 1 MM)"
+  },
+  {
+    "column":"CR-CO",
+    "category_name":"무소견",
+    "description":"병변이나 특이사항이 없음을 나타내는 데이터 (예: 없음, -)"
+  },
+  {
+    "column":"CR-CO",
+    "category_name":"근소한 변화",
+    "description":"1mm 이내의 미세한 변화나 위치 이동을 나타내는 데이터 (예: 1mm 이내)"
+  },
+  {
+    "column":"Tongue ridging",
+    "category_name":"강한 양성 (++)",
+    "description":"혀의 융기가 매우 뚜렷하고 심각한 수준으로 나타나는 경우"
+  },
+  {
+    "column":"Tongue ridging",
+    "category_name":"약한 양성 (+)",
+    "description":"혀의 융기가 경미하게 관찰되는 상태"
+  },
+  {
+    "column":"Tongue ridging",
+    "category_name":"음성 (-)",
+    "description":"혀의 융기가 전혀 없거나 관찰되지 않는 상태"
+  },
+  {
+    "column":"Tongue ridging",
+    "category_name":"미확인 (n\/s)",
+    "description":"데이터 확인이 불가능하거나 판단할 수 없는 상태"
+  },
+  {
+    "column":"Mucosal ridging",
+    "category_name":"없음(-)",
+    "description":"점막 주름에 변화가 없거나 정상적인 상태"
+  },
+  {
+    "column":"Mucosal ridging",
+    "category_name":"경도(+)",
+    "description":"점막 주름에 약간의 변화나 경미한 비정상적 소견이 있는 상태"
+  },
+  {
+    "column":"Mucosal ridging",
+    "category_name":"중등도(++)",
+    "description":"점막 주름에 뚜렷한 변화나 중간 정도의 비정상적 소견이 있는 상태"
+  },
+  {
+    "column":"Rt",
+    "category_name":"낮은 전파력 (Low Transmission)",
+    "description":"Rt 값이 1.0 ~ 1.3 사이로, 감염병의 확산이 제한적이고 안정적인 상태"
+  },
+  {
+    "column":"Rt",
+    "category_name":"중간 전파력 (Moderate Transmission)",
+    "description":"Rt 값이 1.3 ~ 1.6 사이로, 감염병이 점진적으로 확산되는 상태"
+  },
+  {
+    "column":"Rt",
+    "category_name":"높은 전파력 (High Transmission)",
+    "description":"Rt 값이 1.6 이상으로, 감염병이 급격히 확산되는 위험한 상태"
+  },
+  {
+    "column":"Lt",
+    "category_name":"저강도 범위",
+    "description":"0.8 ~ 1.2 사이의 낮은 Lt 값을 가진 데이터 포인트"
+  },
+  {
+    "column":"Lt",
+    "category_name":"중간 강도 범위",
+    "description":"1.2 ~ 1.5 사이의 중간 Lt 값을 가진 데이터 포인트"
+  },
+  {
+    "column":"Lt",
+    "category_name":"고강도 범위",
+    "description":"1.5 ~ 1.8 사이의 높은 Lt 값을 가진 데이터 포인트"
+  },
+  {
+    "column":"Lt",
+    "category_name":"최고 강도 범위",
+    "description":"1.8 이상의 매우 높은 Lt 값을 가진 데이터 포인트"
+  },
+  {
+    "column":"Lateral excursion Protrusive excursion",
+    "category_name":"Normal Range",
+    "description":"정상적인 측방 및 전방 운동 범위를 나타내는 카테고리. 턱의 정상적인 움직임을 의미함"
+  },
+  {
+    "column":"Lateral excursion Protrusive excursion",
+    "category_name":"Limited Movement",
+    "description":"턱의 측방 및 전방 운동이 제한된 상태를 나타내는 카테고리. 턱 관절의 움직임에 제약이 있음"
+  },
+  {
+    "column":"Lateral excursion Protrusive excursion",
+    "category_name":"Not Specified (n\/s)",
+    "description":"측정이나 평가가 명확하지 않거나 기록되지 않은 상태를 나타내는 카테고리"
+  },
+  {
+    "column":"Lateral excursion Protrusive excursion",
+    "category_name":"No Data",
+    "description":"데이터가 없거나 기록되지 않은 상태를 나타내는 카테고리. 대시(-) 표시로 구분"
+  },
+  {
+    "column":"End feel",
+    "category_name":"Soft",
+    "description":"관절 움직임 종료 시점에 부드럽고 탄력적인 저항감, 정상적인 상태를 나타냄"
+  },
+  {
+    "column":"End feel",
+    "category_name":"Hard",
+    "description":"관절 움직임 종료 시점에 단단하고 뻣뻣한 저항감, 관절 경직이나 병리학적 상태를 의미"
+  },
+  {
+    "column":"End feel",
+    "category_name":"Firm",
+    "description":"중간 정도의 저항감, 약간의 경직이 있지만 완전히 뻣뻣하지 않은 상태"
+  },
+  {
+    "column":"End feel",
+    "category_name":"Empty",
+    "description":"저항감이 거의 없거나 완전히 없는 상태, 심각한 병리학적 변화를 시사"
+  },
+  {
+    "column":"치료계획",
+    "category_name":"추적관리",
+    "description":"환자의 향후 진료 일정, 재방문 시기, 경과 관찰 등과 관련된 계획"
+  },
+  {
+    "column":"치료계획",
+    "category_name":"치료방법",
+    "description":"물리치료, 보톡스, 장치 처방 등 구체적인 치료 접근 방식에 대한 계획"
+  },
+  {
+    "column":"치료계획",
+    "category_name":"후속조치",
+    "description":"현재 치료 이후 필요한 추가적인 의학적 개입이나 환자의 자가관리 지침"
+  },
+  {
+    "column":"치료계획",
+    "category_name":"진단평가",
+    "description":"초음파 검사 등 향후 필요한 진단적 평가 및 재평가 계획"
+  },
+  {
+    "column":"치료계획",
+    "category_name":"일정조정",
+    "description":"환자의 상황(출국, 휴가 등)에 따른 진료 일정 조정 계획"
+  }
+]
