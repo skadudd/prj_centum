@@ -503,3 +503,93 @@ class PresentIllnessPrompts:
                 "pi_aggravating_factors": ""
             }}]
             """
+            
+class NumericPrompts:
+    """교합 관련 데이터 추출 프롬프트"""
+    
+    @staticmethod
+    def extract_occlusion_data(texts):
+        """교합 데이터 추출 프롬프트"""
+        return f"""다음 구강 교합 관련 텍스트들을 분석하여 각 케이스별로 교합 정보를 JSON 형식으로 추출해주세요.
+
+        각 텍스트에 대해 다음 정보를 추출해주세요:
+        1. occlusion_rt_number: 오른쪽(Rt) 교합 시 닿는 이빨 갯수 (0-4 사이의 정수)
+        - 4,5,6,7번 치아가 교합에 참여하는지 확인
+        - "4567"과 같이 표시된 경우 4개
+        - "567"과 같이 표시된 경우 3개
+        - "67"과 같이 표시된 경우 2개
+        - 치아가 없거나 완전히 안 닿는 경우 0
+
+        2. occlusion_lt_number: 왼쪽(Lt) 교합 시 닿는 이빨 갯수 (0-4 사이의 정수)
+        - 위와 동일한 규칙 적용
+
+        3. occlusion_rt_intensity: 오른쪽 교합 강도 (0-2 사이의 정수)
+        - 0: "안닿음", "뜸", "open bite" 등 교합이 없는 경우
+        - 1: "살짝 닿음", "약하게", "약함", "덜 닿음" 등 교합이 약한 경우
+        - 2: 정상 교합 또는 강도에 대한 언급이 없는 경우
+
+        4. occlusion_lt_intensity: 왼쪽 교합 강도 (0-2 사이의 정수)
+        - 위와 동일한 규칙 적용
+
+        텍스트 분석 시 주의사항:
+        - "Both", "both"는 양쪽 모두를 의미합니다.
+        - "Lt", "LT", "lt", "왼쪽", "좌측"은 왼쪽을 의미합니다.
+        - "Rt", "RT", "rt", "오른쪽", "우측"은 오른쪽을 의미합니다.
+        - 괄호 안의 내용(예: "(Lt 45덜닿음>더 닿음)")도 고려하세요.
+        - 특정 치아가 언급되지 않은 경우, 해당 방향의 전체 교합 상태를 고려하세요.
+        - 텍스트에 치아 번호만 언급되고 강도가 명시되지 않은 경우 강도는 2로 간주합니다.
+        - 빈 문자열이나 "n/s", "nan", "-" 등의 경우 모든 값을 null로 처리합니다.
+
+        예시 분석:
+        1. "4567/4567 (우측 6,7 긴밀하진 않음)" -> {{
+        "occlusion_rt_number": 4, 
+        "occlusion_lt_number": 4, 
+        "occlusion_rt_intensity": 1, 
+        "occlusion_lt_intensity": 2
+        }}
+
+        2. "오른쪽 4,5 안닿음" -> {{
+        "occlusion_rt_number": 2, 
+        "occlusion_lt_number": 4, 
+        "occlusion_rt_intensity": 0, 
+        "occlusion_lt_intensity": 2
+        }}
+
+        3. "Lt) 45 안 닿음/ Rt 3번 약하게 닿음" -> {{
+        "occlusion_rt_number": 4, 
+        "occlusion_lt_number": 2, 
+        "occlusion_rt_intensity": 1, 
+        "occlusion_lt_intensity": 0
+        }}
+
+        4. "왼쪽 4,5 안 닿음 -> 교합지 상에서" -> {{
+        "occlusion_rt_number": 4, 
+        "occlusion_lt_number": 2, 
+        "occlusion_rt_intensity": 2, 
+        "occlusion_lt_intensity": 0
+        }}
+
+        5. "both 4567" -> {{
+        "occlusion_rt_number": 4, 
+        "occlusion_lt_number": 4, 
+        "occlusion_rt_intensity": 2, 
+        "occlusion_lt_intensity": 2
+        }}
+
+        6. "BOTH 4567 OPEN BITE 경향" -> {{
+        "occlusion_rt_number": 4, 
+        "occlusion_lt_number": 4, 
+        "occlusion_rt_intensity": 1, 
+        "occlusion_lt_intensity": 1
+        }}
+
+        다음 텍스트들에 대해 분석해주세요:
+        {texts}
+
+        다음 JSON 형식으로 응답해주세요:
+        [{{
+            "occlusion_rt_number": 숫자 또는 null,
+            "occlusion_lt_number": 숫자 또는 null,
+            "occlusion_rt_intensity": 숫자 또는 null,
+            "occlusion_lt_intensity": 숫자 또는 null
+        }}]"""
