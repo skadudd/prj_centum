@@ -13,7 +13,7 @@ class RateLimiter:
     - 4,000,000 TPM (Tokens Per Minute)
     """
     
-    def __init__(self, rpm_limit: int = 5000, tpm_limit: int = 4000000):
+    def __init__(self, rpm_limit: int = 5000, tpm_limit: int = 3800000, tpd_limit: int = 38000000):
         self.rpm_limit = rpm_limit
         self.tpm_limit = tpm_limit
         
