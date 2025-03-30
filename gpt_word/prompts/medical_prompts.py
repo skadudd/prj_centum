@@ -66,10 +66,10 @@ class CCPrompts:
 
             다음 JSON 형식으로 응답해주세요:
             [{{
-                "dentalHistory_desc": "과거 물리치료",
+                "dentalHistory_desc": "",
                 "clinic_history_desc": "",
-                "factor_habbit": "이 악물기",
-                "treat_plan": "물리치료",
+                "factor_habbit": "",
+                "treat_plan": "",
             }}]
             """
     
@@ -109,10 +109,10 @@ class CCPrompts:
 
         [
             {{
-            "location": "입가쪽",
-            "pain_type": "뻐근함",
-            "painUncomp_desc_jaw": "턱 통증",
-            "disable_desc_jaw": "제한된 개구",
+            "location": "",
+            "pain_type": "",
+            "painUncomp_desc_jaw": "",
+            "disable_desc_jaw": "",
             "muscle_joint_desc_stress": "",
             
             }}
@@ -140,21 +140,21 @@ class CCPrompts:
 
             1. severity: 통증이나 증상의 강도를 1에서 5 사이의 숫자로 표현합니다.  
                 언급되지 않으면 null.
-            2. vas: VAS 점수를 정수로 표현합니다.  
-                언급되지 않으면 null.
-            3. duration: 증상의 지속 기간을 문자열로 표현합니다.  
+            2. duration: 증상의 지속 기간을 문자열로 표현합니다.  
                 명시되지 않으면 빈 문자열("").
             
-            텍스트 목록:
-            {texts}
 
-            다음 JSON 형식으로 응답해주세요:
+            예시 응답 형식은 다음과 같이 작성하세요:
             [{{
                 "severity": "숫자 또는 null",
-                "vas": "숫자 또는 null",
                 "duration": "기간 또는 null"
-            }}]"""
+            }}]
 
+            텍스트 목록:
+            {texts}
+            
+            위의 형식에 맞게, JSON 배열로 응답해주세요.
+            """
 
 class TreatmentPrompts:
     """치료 관련 프롬프트"""
@@ -162,29 +162,42 @@ class TreatmentPrompts:
     @staticmethod
     def medication_prompt(texts):
         """약물 복용 분류 프롬프트"""
-        return f"""다음 약물 복용 관련 텍스트들을 분석하여 JSON 형식으로 분류해주세요.
+        return f"""
+            당신은 구강내과 전문의입니다. 아래는 환자의 약물 복용 정보입니다.
+            텍스트에 없는 정보는 절대 추가하지 말고, 명확하게 언급된 정보만 사용하세요.
+            누락된 내용은 빈 문자열("") 또는 null로 처리하세요.
+            아래 각 항목은 텍스트에 명시된 내용을 기반으로 정확히 추출해야 합니다.
+            다음 약물 복용 관련 텍스트들을 분석하여 JSON 형식으로 분류해주세요.
 
-            각 텍스트에 대해 다음 정보를 추출해주세요:
             1. medication_type: 약물 종류 (진통제/소염제/근이완제 등)
             2. frequency: 복용 빈도 ('regular': 정기적, 'occasional': 간헐적, 'none': 미복용)
             3. duration: 복용 기간 (명시된 경우만)
             4. compliance: 복약 순응도 ('good': 양호, 'fair': 보통, 'poor': 불량)
 
+
+            예시 응답 형식은 다음과 같이 작성하세요:
+            [{{
+                "medication_type": "",
+                "frequency": "",
+                "duration": "",
+                "compliance": ""
+            }}]
+            
             텍스트 목록:
             {texts}
-
-            다음 JSON 형식으로 응답해주세요:
-            [{{
-                "medication_type": "약물 종류",
-                "frequency": "복용 빈도",
-                "duration": "기간 또는 null",
-                "compliance": "순응도"
-            }}]"""
+            
+            위의 형식에 맞게, JSON 배열로 응답해주세요.            
+            """
 
     @staticmethod
     def device_prompt(texts):
         """장치 사용 분류 프롬프트"""
-        return f"""다음 장치 사용 관련 텍스트들을 분석하여 JSON 형식으로 분류해주세요.
+        return f"""
+            당신은 구강내과 전문의입니다. 아래는 환자의 장치 정보입니다.
+            텍스트에 없는 정보는 절대 추가하지 말고, 명확하게 언급된 정보만 사용하세요.
+            누락된 내용은 빈 문자열("") 또는 null로 처리하세요.
+            아래 각 항목은 텍스트에 명시된 내용을 기반으로 정확히 추출해야 합니다.
+            다음 텍스트들을 분석하여 JSON 형식으로 분류해주세요.
 
             각 텍스트에 대해 다음 정보를 추출해주세요:
             1. device_type: 장치 종류
@@ -192,38 +205,63 @@ class TreatmentPrompts:
             3. duration: 사용 기간
             4. compliance: 착용 순응도 ('good': 양호, 'fair': 보통, 'poor': 불량)
 
+            예시 응답 형식은 다음과 같이 작성하세요:
+            [{{
+                "device_type": "",
+                "usage_pattern": "",
+                "duration": "",
+                "compliance": ""
+            }}]
             텍스트 목록:
             {texts}
-
-            다음 JSON 형식으로 응답해주세요:
-            [{{
-                "device_type": "장치 종류",
-                "usage_pattern": "사용 패턴",
-                "duration": "기간 또는 null",
-                "compliance": "순응도"
-            }}]"""
+            
+            위의 형식에 맞게, JSON 배열로 응답해주세요.            
+            """
     
     @staticmethod
     def habit_prompt(texts):
         """습관 분류 프롬프트"""
-        return f"""다음 습관 관련 텍스트들을 분석하여 JSON 형식으로 분류해주세요.
+        return f"""
+        당신은 구강내과 전문의입니다. 아래는 환자의 습관 정보를 담은 텍스트입니다.
+        아래 지시사항을 엄격히 따르세요:
+        - 텍스트에 명시되지 않은 정보는 절대로 추가하지 마세요.
+        - 누락된 정보는 빈 문자열("") 또는 null로 처리하세요.
+        - 응답은 반드시 JSON 배열 형태여야 하며, 각 객체는 아래 필드만 포함해야 합니다.
 
-            각 텍스트에 대해 다음 정보를 추출해주세요:
-            1. habit_type: 습관 종류 (이갈이/편측성저작 등)
-            2. frequency: 빈도 ('high': 매일/자주, 'medium': 가끔, 'low': 거의없음)
-            3. awareness: 인지여부 ('aware': 인지, 'unaware': 미인지)
-            4. improvement: 개선여부 ('improved': 개선, 'unchanged': 유지, 'worsened': 악화)
+        각 텍스트에 대해 다음 정보를 추출하세요:
 
-            텍스트 목록:
-            {texts}
+        1. habit_type: 환자의 습관 유형을 나타냅니다.
+        - 예를 들어, "이갈이", "치아 접촉 줄이기", "편측성 저작" 등이 해당됩니다.
+        - 텍스트에 이러한 구체적인 용어가 언급되지 않으면 빈 문자열("")로 처리하세요.
 
-            다음 JSON 형식으로 응답해주세요:
-            [{{
-                "habit_type": "습관 종류",
-                "frequency": "빈도",
-                "awareness": "인지여부",
-                "improvement": "개선여부"
-            }}]"""
+        2. frequency: 습관의 빈도를 나타냅니다.
+        - 가능한 값은 "high" (매일 또는 자주), "medium" (가끔), "low" (거의 없음)입니다.
+        - 텍스트에 구체적인 빈도 관련 언급이 없다면 빈 문자열("")로 처리하세요.
+
+        3. awareness: 환자가 자신의 습관을 인지하고 있는지를 나타냅니다.
+        - 가능한 값은 "aware" (인지함)와 "unaware" (인지하지 못함)입니다.
+        - 텍스트에 해당 내용이 명확히 언급되지 않으면 빈 문자열("")로 처리하세요.
+
+        4. improvement: 해당 습관의 개선 여부를 나타냅니다.
+        - 가능한 값은 "improved" (개선됨), "unchanged" (변화 없음), "worsened" (악화됨)입니다.
+        - 텍스트에 이에 대한 언급이 없으면 빈 문자열("")로 처리하세요.
+
+        예시 응답 형식은 다음과 같습니다:
+
+        [
+        {
+            "habit_type": "",
+            "frequency": "",
+            "awareness": "",
+            "improvement": ""
+        }
+        ]
+
+        텍스트 목록:
+        {texts}
+
+        위의 형식에 맞게 JSON 배열로 응답해주세요.
+            """
 
 
 class TherapyPrompts:
@@ -232,7 +270,12 @@ class TherapyPrompts:
     @staticmethod
     def hot_pack_prompt(texts):
         """찜질 분류 프롬프트"""
-        return f"""다음 찜질 관련 텍스트들을 분석하여 JSON 형식으로 분류해주세요.
+        return f"""
+            당신은 구강내과 전문의입니다. 아래는 환자의 찜질 정보입니다.
+            텍스트에 없는 정보는 절대 추가하지 말고, 명확하게 언급된 정보만 사용하세요.
+            누락된 내용은 빈 문자열("") 또는 null로 처리하세요.
+            아래 각 항목은 텍스트에 명시된 내용을 기반으로 정확히 추출해야 합니다.
+            다음 텍스트들을 분석하여 JSON 형식으로 분류해주세요.
 
             각 텍스트에 대해 다음 정보를 추출해주세요:
             1. status: 찜질 시행 여부 (0: 미시행, 1: 시행)
@@ -240,21 +283,30 @@ class TherapyPrompts:
             3. duration: 시행 시간 (분 단위 정수, 명시되지 않은 경우 null)
             4. method: 찜질 방법 ('hot': 온찜질, 'cold': 냉찜질, 'both': 둘 다, null: 불명확)
 
+
+            예시 응답 형식은 다음과 같이 작성하세요:
+            [{{
+                "status": "",
+                "frequency": "",
+                "duration": "",
+                "method": ""
+            }}]
+            
             텍스트 목록:
             {texts}
-
-            다음 JSON 형식으로 응답해주세요:
-            [{{
-                "status": 0 또는 1,
-                "frequency": "빈도",
-                "duration": 숫자 또는 null,
-                "method": "방법"
-            }}]"""
+            
+            위의 형식에 맞게, JSON 배열로 응답해주세요.
+            """
 
     @staticmethod
     def massage_prompt(texts):
         """마사지/스트레칭 분류 프롬프트"""
-        return f"""다음 마사지/스트레칭 관련 텍스트들을 분석하여 JSON 형식으로 분류해주세요.
+        return f"""
+            당신은 구강내과 전문의입니다. 아래는 환자의 마사지 및 스트레칭 정보입니다.
+            텍스트에 없는 정보는 절대 추가하지 말고, 명확하게 언급된 정보만 사용하세요.
+            누락된 내용은 빈 문자열("") 또는 null로 처리하세요.
+            아래 각 항목은 텍스트에 명시된 내용을 기반으로 정확히 추출해야 합니다.
+            다음 텍스트들을 분석하여 JSON 형식으로 분류해주세요.
 
             각 텍스트에 대해 다음 정보를 추출해주세요:
             1. type: 종류 ('massage': 마사지, 'stretching': 스트레칭, 'both': 둘다)
@@ -262,16 +314,20 @@ class TherapyPrompts:
             3. duration: 시행 시간 (분 단위 정수, 명시되지 않은 경우 null)
             4. method: 방법 ('self': 자가, 'professional': 전문가, 'both': 둘다)
 
+
+            예시 응답 형식은 다음과 같이 작성하세요:
+            [{{
+                "type": "",
+                "frequency": "",
+                "duration": "",
+                "method": ""
+            }}]
+            
             텍스트 목록:
             {texts}
-
-            다음 JSON 형식으로 응답해주세요:
-            [{{
-                "type": "종류",
-                "frequency": "빈도",
-                "duration": 숫자 또는 null,
-                "method": "방법"
-            }}]"""
+            
+            위의 형식에 맞게, JSON 배열로 응답해주세요.
+            """
 
 
 class PresentIllnessPrompts:
@@ -419,7 +475,7 @@ class PresentIllnessPrompts:
             - 복용 기간 기재
             - 예: 30
 
-            텍스트 목록:
+            텍스트 목록:``# a named\ takes parameters lengthdef_area,):\n # length width    Return
             {texts}
 
             다음 JSON 형식으로 응답해주세요:
