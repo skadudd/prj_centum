@@ -18,3 +18,4 @@ processed_medical_data_*
 .jsonl.gz*
 ./checkpoints*
 .log*
+.json
