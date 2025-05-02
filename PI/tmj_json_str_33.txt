@@ -1,0 +1,18 @@
+[
+  {
+    "onset": "",
+    "pattern": "",
+    "aggravating_factors": ["딱딱한 음식", "스트레스", "이 악물기"],
+    "status": "",
+    "TMJ_PI_desc": ["파노라마", "Cone Beam CT", "측두하악장애분석검사", "T-scan", "초음파"],
+    "TMJ_PI_treatment": ["측두하악관절자극요법-단순", "측두하악관절자극요법-전기", "측두하악관절자극요법-복합", "분사신장치료"],
+    "drug_treatment": ["리보트릴정", "소론도정", "페리슨정", "세크로정", "알마겔정", "영진멜라토닌서방정"],
+    "closing_dentalgear_desc": ["SS Splint", "APS Splint", "이갈이장치"],
+    "PI_check": ["증상 ck [1주후]", "증상 ck [2주후]", "증상 ck [1개월후]"],
+    "PI_diagnosis_jojint": "턱관절의 퇴행성 관절염 (K07.65)",
+    "physical_therapy": "측두하악관절 단순/전기/복합 자극, 분사신장치료",
+    "occlusal_treatment": "SS Splint, APS Splint 장착 및 조정",
+    "medication_prescription": "리보트릴정(클로나제팜) - 1/1회/7일 :: 취침 직전 복용, 소론도정(프레드니솔론) - 1/1회/7일 :: 기상 직후 복용, 페리슨정(에페리손염산염) - 1/1회/7일 :: 취침 직전 복용",
+    "other_treatment": "보톡스 시술(교근+측두근), 악관절 고착 해소술"
+  }
+]

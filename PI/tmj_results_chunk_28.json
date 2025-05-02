@@ -1,0 +1,47 @@
+[
+  {
+    "onset": "",
+    "pattern": "progressive",
+    "aggravating_factors": [
+      "딱딱한 음식",
+      "스트레스",
+      "이 악물기"
+    ],
+    "status": "improving",
+    "TMJ_PI_desc": [
+      "파노라마",
+      "Cone Beam CT",
+      "측두하악장애분석검사",
+      "초음파",
+      "T-scan"
+    ],
+    "TMJ_PI_treatment": [
+      "측두하악관절자극요법-단순",
+      "측두하악관절자극요법-전기",
+      "측두하악관절자극요법-복합",
+      "분사신장치료"
+    ],
+    "drug_treatment": [
+      "페리슨정(에페리손염산염)",
+      "세크로정(아세클로페낙)",
+      "소론도정(프레드니솔론)",
+      "리보트릴정(클로나제팜)",
+      "뉴론틴캡슐300밀리그램(가바펜틴)"
+    ],
+    "closing_dentalgear_desc": [
+      "SS Splint",
+      "APS Splint",
+      "이갈이 장치"
+    ],
+    "PI_check": [
+      "증상 ck [1주후]",
+      "물리치료 [2주후]",
+      "장치 ck [1개월후]"
+    ],
+    "PI_diagnosis_jojint": "턱관절의 퇴행성 관절염 (K07.65)",
+    "physical_therapy": "측두하악관절 단순/전기/복합 자극, 분사신장치료, 초음파 치료",
+    "occlusal_treatment": "SS Splint, APS Splint 장착 및 조정",
+    "medication_prescription": "페리슨정(에페리손염산염) - 1/1회/7일 :: 취침 직전 복용, 세크로정(아세클로페낙) - 1/2회/7일 :: 아침,저녁 식후 30분 복용",
+    "other_treatment": "교근+측두근 보톡스, 악관절강세척술"
+  }
+]
