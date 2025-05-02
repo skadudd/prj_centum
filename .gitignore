@@ -19,3 +19,4 @@ processed_medical_data_*
 ./checkpoints*
 .log*
 .json
+.json*
