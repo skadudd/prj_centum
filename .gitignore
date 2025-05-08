@@ -20,3 +20,10 @@ processed_medical_data_*
 .log*
 .json
 .json*
+.h5*
+.hdf5*
+.hdf5
+.hdf5*
+.hdf5*
+.hdf5*
+.hdf5*
